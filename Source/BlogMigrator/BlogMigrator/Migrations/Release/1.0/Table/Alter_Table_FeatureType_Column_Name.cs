@@ -14,7 +14,7 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
         {
             string sql = @"IF EXISTS (SELECT * FROM SYS.columns WHERE NAME=N'FeatureTypeName' AND object_id = OBJECT_ID('Feature.FeatureType'))
                             BEGIN
-                                ALTER TABLE Feature.FeatureType RENAME COLUMN FeatureTypeName TO FeatureName
+								EXEC sp_rename 'Feature.FeatureType.FeatureTypeName', 'FeatureName', 'COLUMN';  
                             END
                             ";
             Execute.Sql(sql);
@@ -24,7 +24,7 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
         {
             string sql = @"IF EXISTS (SELECT * FROM SYS.columns WHERE NAME=N'FeatureName' AND object_id = OBJECT_ID('Feature.FeatureType'))
                             BEGIN
-                                ALTER TABLE Feature.FeatureType RENAME COLUMN FeatureName TO FeatureTypeName
+								EXEC sp_rename 'Feature.FeatureType.FeatureName', 'FeatureTypeName', 'COLUMN';  
                             END";
             Execute.Sql(sql);
         }
