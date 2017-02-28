@@ -12,13 +12,22 @@ namespace BlogMigrator.Migrations.Release._1._0.Data
     {
         public override void Down()
         {
-            string query = "";
+            string query = @"";
             Execute.Sql(query);
         }
 
         public override void Up()
         {
-            throw new NotImplementedException();
+            string query = @"IF NOT EXISTS (SELECT TOP 1 0 FROM Feature.FeatureType WHERE FeatureTypeName='Technical')
+                            BEGIN
+                            	INSERT Feature.FeatureType(FeatureTypeName) VALUES('Technical')
+                            END
+                            GO
+                            IF NOT EXISTS (SELECT TOP 1 0 FROM Feature.FeatureType WHERE FeatureTypeName='Non-Technical')
+                            BEGIN
+                            	INSERT Feature.FeatureType(FeatureTypeName) VALUES('Non-Technical')
+                            END";
+            Execute.Sql(query);
         }
     }
 }
