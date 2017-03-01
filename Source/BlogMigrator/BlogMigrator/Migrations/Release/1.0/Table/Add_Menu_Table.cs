@@ -58,7 +58,7 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
                                 GO
 
                                 ALTER TABLE [Menu]   
-                                ADD CONSTRAINT AK_MenuName UNIQUE MenuName
+                                ADD CONSTRAINT AK_MenuName UNIQUE (MenuName)
                                 ";
 
             Execute.Sql(sql);
