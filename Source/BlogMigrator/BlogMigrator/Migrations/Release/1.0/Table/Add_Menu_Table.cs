@@ -46,7 +46,8 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
                                 	[MenuId] ASC
                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
                                 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-                                
+                            END
+
                                 GO
                                 
                                 ALTER TABLE [Menu]  WITH CHECK ADD  CONSTRAINT [FK_Menu_MenuId] FOREIGN KEY([ParentId])
@@ -58,9 +59,7 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
 
                                 ALTER TABLE [Menu]   
                                 ADD CONSTRAINT AK_MenuName UNIQUE MenuName
-                                
-                                GO
-                            END";
+                                ";
 
             Execute.Sql(sql);
         }
