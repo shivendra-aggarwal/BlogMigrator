@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Release\1.0\Data\Add_FeatureTypes.cs" />
+    <Compile Include="Migrations\Release\1.0\Data\Add_Menus.cs" />
     <Compile Include="Migrations\Release\1.0\Table\Add_Menu_Table.cs" />
     <Compile Include="Migrations\Release\1.0\Table\Alter_Table_Menu_Column_Name.cs" />
     <Compile Include="Migrations\Release\1.0\Table\Alter_Table_FeatureType_Column_Name.cs" />
