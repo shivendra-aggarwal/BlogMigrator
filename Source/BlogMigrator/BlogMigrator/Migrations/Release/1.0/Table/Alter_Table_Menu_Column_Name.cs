@@ -24,7 +24,7 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
         {
             string sql = @"IF EXISTS (SELECT * FROM SYS.columns WHERE NAME=N'MenuId' AND object_id = OBJECT_ID('Menu'))
                             BEGIN
-								EXEC sp_rename 'MenuId', 'Identifier', 'COLUMN';  
+								EXEC sp_rename 'Menu.MenuId', 'Identifier', 'COLUMN';  
                             END";
             Execute.Sql(sql);
         }
