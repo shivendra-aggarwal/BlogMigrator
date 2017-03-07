@@ -29,12 +29,12 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
         {
             string sql = @"IF NOT EXISTS (SELECT * FROM SYS.columns WHERE NAME=N'ControllerName' AND object_id = OBJECT_ID('Menu'))
                             BEGIN
-								ALTER TABLE Menu ADD COLUMN ControllerName NVARCHAR(100)
+								ALTER TABLE Menu ADD ControllerName NVARCHAR(100)
                             END
 
                             IF NOT EXISTS (SELECT * FROM SYS.columns WHERE NAME=N'ActionName' AND object_id = OBJECT_ID('Menu'))
                             BEGIN
-								ALTER TABLE Menu ADD COLUMN ActionName NVARCHAR(100)
+								ALTER TABLE Menu ADD ActionName NVARCHAR(100)
                             END";
             Execute.Sql(sql);
         }
