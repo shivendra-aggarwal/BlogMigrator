@@ -47,10 +47,11 @@
     <Compile Include="Migrations\Release\1.0\Data\Add_FeatureTypes.cs" />
     <Compile Include="Migrations\Release\1.0\Data\Add_Menus.cs" />
     <Compile Include="Migrations\Release\1.0\Data\Add_Menu_Controller_Action.cs" />
+    <Compile Include="Migrations\Release\1.0\Table\Add_Feature_Table.cs" />
     <Compile Include="Migrations\Release\1.0\Table\Add_Menu_Table.cs" />
+    <Compile Include="Migrations\Release\1.0\Table\Add_Table_FeatureType.cs" />
     <Compile Include="Migrations\Release\1.0\Table\Alter_Table_Menu_Column_Controller_Action.cs" />
     <Compile Include="Migrations\Release\1.0\Table\Alter_Table_Menu_Column_Name.cs" />
-    <Compile Include="Migrations\Release\1.0\Table\Alter_Table_FeatureType_Column_Name.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\MigrationVersion.cs" />
   </ItemGroup>
