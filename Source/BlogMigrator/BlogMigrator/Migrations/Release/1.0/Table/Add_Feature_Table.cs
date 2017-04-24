@@ -59,7 +59,8 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
                                 GO
                                 
                                 ALTER TABLE [Feature] CHECK CONSTRAINT [FK_Feature_FeatureType]
-                                GO";
+                                GO
+                            END";
 
             Execute.Sql(sql);
         }
