@@ -57,7 +57,7 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
                                 
                                 ALTER TABLE [Feature] CHECK CONSTRAINT [FK_Feature_FeatureType]
 
-                                ALTER TABLE Person.Password ADD CONSTRAINT Feature_Unique_FeatureName_FeatureCode UNIQUE (FeatureCode, FeatureName);   
+                                ALTER TABLE [Feature] ADD CONSTRAINT Feature_Unique_FeatureName_FeatureCode UNIQUE (FeatureCode, FeatureName);   
                             END";
 
             Execute.Sql(sql);
