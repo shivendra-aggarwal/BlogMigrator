@@ -50,7 +50,7 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
                                 (
                                 	[Identifier] ASC
                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-                                ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+                                ) ON [PRIMARY]
                                 
                                 ALTER TABLE [Feature]  WITH CHECK ADD  CONSTRAINT [FK_Feature_FeatureType] FOREIGN KEY([FeatureTypeId])
                                 REFERENCES [FeatureType] ([Identifier])
