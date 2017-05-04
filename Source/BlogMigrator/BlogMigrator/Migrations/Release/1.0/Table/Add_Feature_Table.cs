@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BlogMigrator.Migrations.Release._1._0.Table
 {
-    [Migration(240420171145)]
-    public class Add_Feature_Table : Migration
+    [Migration(050520171215)]
+    public class Add_Feature_Table_1 : Migration
     {
         public override void Down()
         {
@@ -30,20 +30,22 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
                             BEGIN
                                 CREATE TABLE [Feature](
                                 	[Identifier] [int] IDENTITY(1,1) NOT NULL,
-                                	[FeatureName] [nvarchar](max) NULL,
-                                	[FeatureDescription] [nvarchar](max) NULL,
+                                    [FeatureCode] [nvarchar](4) NOT NULL,
+                                	[FeatureName] [nvarchar](200) NOT NULL,
+                                	[FeatureDescription] [nvarchar](2000) NULL,
+                                    [SeedSeriesNo] [int] NOT NULL,
                                 	[IsCompleted] [bit] NOT NULL,
                                 	[CompletedOn] [datetime] NULL,
                                 	[StartedOn] [datetime] NULL,
                                 	[IsActive] [bit] NOT NULL,
-                                	[DocUrl] [nvarchar](max) NULL,
-                                	[ImageUrl] [nvarchar](max) NULL,
+                                	[DocUrl] [nvarchar](1000) NULL,
+                                	[ImageUrl] [nvarchar](1000) NULL,
                                 	[FeatureTypeId] [int] NOT NULL,
                                 	[ProjectId] [int] NOT NULL,
                                 	[CreatedDate] [datetime] NOT NULL,
-                                	[CreatedBy] [nvarchar](max) NULL,
+                                	[CreatedBy] [int] NULL,
                                 	[UpdatedDate] [datetime] NOT NULL,
-                                	[UpdatedBy] [nvarchar](max) NULL,
+                                	[UpdatedBy] [int] NULL,
                                  CONSTRAINT [PK_Feature] PRIMARY KEY CLUSTERED 
                                 (
                                 	[Identifier] ASC
@@ -54,7 +56,8 @@ namespace BlogMigrator.Migrations.Release._1._0.Table
                                 REFERENCES [FeatureType] ([Identifier])
                                 
                                 ALTER TABLE [Feature] CHECK CONSTRAINT [FK_Feature_FeatureType]
-                                
+
+                                ALTER TABLE Person.Password ADD CONSTRAINT Feature_Unique_FeatureName_FeatureCode UNIQUE (FeatureCode, FeatureName);   
                             END";
 
             Execute.Sql(sql);
